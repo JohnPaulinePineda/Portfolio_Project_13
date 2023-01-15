@@ -1,5 +1,5 @@
 ---
-title: "Remedial Procedures in Handling Imbalanced Data for Classification"
+title: "R : Remedial Procedures in Handling Imbalanced Data for Classification"
 author: "John Pauline Pineda"
 date: "December 12, 2022"
 output: 
