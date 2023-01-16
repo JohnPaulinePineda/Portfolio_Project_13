@@ -1934,7 +1934,7 @@ BTREE_ROSE_IN_Test_ROC <- roc(response = BTREE_ROSE_IN_Test$BTREE_Observed,
 
 ```
 
-## 1.7 Evaluation Summary
+## 1.6 Evaluation Summary
 |
 | Model performance comparison:
 |
@@ -2075,7 +2075,7 @@ colnames(BTREE_TEST_SUMMARY) <- c("LCL", "ROC", "UCL")
 
 ```
 
-##  1.8 References
+##  1.7 References
 |
 | **[Book]** [Applied Predictive Modeling](http://appliedpredictivemodeling.com/) by Max Kuhn and Kjell Johnson
 | **[Book]** [An Introduction to Statistical Learning](https://www.statlearning.com/) by Gareth James, Daniela Witten, Trevor Hastie and Rob Tibshirani
