@@ -2075,7 +2075,7 @@ colnames(BTREE_TEST_SUMMARY) <- c("LCL", "ROC", "UCL")
 
 ```
 
-##  1.7 References
+# **2. References**
 |
 | **[Book]** [Applied Predictive Modeling](http://appliedpredictivemodeling.com/) by Max Kuhn and Kjell Johnson
 | **[Book]** [An Introduction to Statistical Learning](https://www.statlearning.com/) by Gareth James, Daniela Witten, Trevor Hastie and Rob Tibshirani
