@@ -517,6 +517,22 @@ References</strong></a></li>
 This document presents a non-exhaustive list of remedial procedures
 applied for severe class imbalance using various helpful packages in
 <mark style="background-color: #CCECFF"><strong>R</strong></mark>.<br />
+<br />
+Data resampling and synthetic data generation address imbalanced
+classification problems by changing the data set used for model training
+to have more balanced data. In data resampling, copies of instances from
+the under-represented class can be added (called oversampling), or
+instances from the over-represented class can be deleted (called
+undersampling), to even-up the classes. In synthetic data generation,
+new instances are created from the minor class instead of merely
+creating copies, by selecting two or more similar instances (using a
+distance measure) and perturbing an instance one attribute at a time by
+a random amount within the difference to the neighboring instances. The
+algorithms applied in this study (mostly contained in the
+<mark style="background-color: #CCECFF"><strong>caret</strong></mark>
+package attempt to augment imbalanced data prior to model training by
+updating the original data set to minimize the effect of the
+disproportionate ratio of instances in each class.<br />
 </div>
 <div id="sample-data" class="section level2">
 <h2>1.1 Sample Data</h2>
@@ -9655,7 +9671,7 @@ Tree</a> by BCCVL Team<br />
 <strong>[Article]</strong> <a href="https://machinelearningmastery.com/what-is-imbalanced-classification/">A
 Gentle Introduction to Imbalanced Classification</a> by Jason
 Brownlee<br />
-<strong>[Article]</strong> <a href="https://support.bccvl.org.au/support/solutions/articles/6000083212-generalized-boosting-model">8
+<strong>[Article]</strong> <a href="https://machinelearningmastery.com/tactics-to-combat-imbalanced-classes-in-your-machine-learning-dataset/#:~:text=8%20Tactics%20To%20Combat%20Imbalanced%20Training%20Data%201,Different%20Perspective%20...%208%208%29%20Try%20Getting%20Creative">8
 Tactics to Combat Imbalanced Classes in Your Machine Learning
 Dataset</a> by Jason Brownlee<br />
 <strong>[Article]</strong> <a href="https://machinelearningmastery.com/framework-for-imbalanced-classification-projects/">Step-By-Step
