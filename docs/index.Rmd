@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE, fig.width=15, fig.height=10)
 |
 | This document presents a non-exhaustive list of remedial procedures applied for severe class imbalance using various helpful packages in <mark style="background-color: #CCECFF">**R**</mark>.
 |
-| Data resampling and synthetic data generation address imbalanced classification problems by changing the data set used for model training to have more balanced data. In data resampling, copies of instances from the under-represented class can be added (called oversampling), or instances from the over-represented class can be deleted (called undersampling), to even-up the classes. In synthetic data generation, new instances are created from the minor class instead of merely creating copies, by selecting two or more similar instances (using a distance measure) and perturbing an instance one attribute at a time by a random amount within the difference to the neighboring instances. The algorithms applied in this study (mostly contained in the <mark style="background-color: #CCECFF">**caret**</mark> package attempt to augment imbalanced data prior to model training by updating the original data set to minimize the effect of the disproportionate ratio of instances in each class.
+| Data resampling and synthetic data generation address imbalanced classification problems by changing the data set used for model training to have more balanced data. In data resampling, copies of instances from the under-represented class can be added (called oversampling), or instances from the over-represented class can be deleted (called undersampling), to even-up the classes. In synthetic data generation, new instances are created from the minor class instead of merely creating copies, by selecting two or more similar instances (using a distance measure) and perturbing an instance one attribute at a time by a random amount within the difference to the neighboring instances. The algorithms applied in this study (mostly contained in the <mark style="background-color: #CCECFF">**caret**</mark>, <mark style="background-color: #CCECFF">**themis**</mark> and <mark style="background-color: #CCECFF">**ROSE**</mark> packages attempt to augment imbalanced data prior to model training by updating the original data set to minimize the effect of the disproportionate ratio of instances in each class.
 |
 ##  1.1 Sample Data
 |
@@ -2113,6 +2113,7 @@ colnames(BTREE_TEST_SUMMARY) <- c("LCL", "ROC", "UCL")
 | **[R Package]** [klaR](https://cran.r-project.org/web/packages/klaR/klaR.pdf) by Christian Roever, Nils Raabe, Karsten Luebke, Uwe Ligges, Gero Szepannek, Marc Zentgraf and David Meyer
 | **[R Package]** [pamr](https://cran.r-project.org/web/packages/pamr/pamr.pdf) by Trevor Hastie, Rob Tibshirani, Balasubramanian Narasimhan and Gil Chu
 | **[R Package]** [ROSE](https://cran.r-project.org/web/packages/ROSE/ROSE.pdf) by Nicola Lunardon
+| **[R Package]** [themis](https://cran.r-project.org/web/packages/themis/themis.pdf) by Emil Hvitfeldt
 | **[Article]** [The caret Package](https://topepo.github.io/caret/index.html) by Max Kuhn
 | **[Article]** [A Short Introduction to the caret Package](https://cran.r-project.org/web/packages/caret/vignettes/caret.html) by Max Kuhn
 | **[Article]** [Caret Package – A Practical Guide to Machine Learning in R](https://www.machinelearningplus.com/machine-learning/caret-package/#:~:text=Caret%20is%20short%20for%20Classification%20And%20REgression%20Training.,track%20of%20which%20algorithm%20resides%20in%20which%20package.) by Selva Prabhakaran
@@ -2132,6 +2133,7 @@ colnames(BTREE_TEST_SUMMARY) <- c("LCL", "ROC", "UCL")
 | **[Article]** [Best Ways To Handle Imbalanced Data in Machine Learning](https://dataaspirant.com/handle-imbalanced-data-machine-learning/) by Jaiganesh Nagidi
 | **[Article]** [Handling Imbalanced Data for Classification](https://www.geeksforgeeks.org/handling-imbalanced-data-for-classification/) by Geeks For Geeks Team
 | **[Publication]** [SMOTE: Synthetic Minority Over-Sampling Technique](https://dl.acm.org/doi/10.5555/1622407.1622416) by Nitesh Chawla, Kevin Bowyer, Lawrence Hall and Philip Kegelmeyer (Journal of Artificial Intelligence Research)
+| **[Publication]** [Training and Assessing Classification Rules with Imbalanced Data](https://link.springer.com/article/10.1007/s10618-012-0295-5) by Giovanna Menardi and Nicola Torelli (Data Mining and Knowledge Discovery)
 | **[Course]** [Applied Data Mining and Statistical Learning](https://online.stat.psu.edu/stat508/) by Penn State Eberly College of Science
 | **[Course]** [Regression Methods](https://online.stat.psu.edu/stat501/) by Penn State Eberly College of Science
 | **[Course]** [Applied Regression Analysis](https://online.stat.psu.edu/stat462/) by Penn State Eberly College of Science
