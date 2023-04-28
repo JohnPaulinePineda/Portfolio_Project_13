@@ -2131,6 +2131,7 @@ colnames(BTREE_TEST_SUMMARY) <- c("LCL", "ROC", "UCL")
 | **[Article]** [How to Handle Imbalanced Classes in Machine Learning](https://elitedatascience.com/imbalanced-classes) by Elite Data Science Team
 | **[Article]** [Best Ways To Handle Imbalanced Data in Machine Learning](https://dataaspirant.com/handle-imbalanced-data-machine-learning/) by Jaiganesh Nagidi
 | **[Article]** [Handling Imbalanced Data for Classification](https://www.geeksforgeeks.org/handling-imbalanced-data-for-classification/) by Geeks For Geeks Team
+| **[Publication]** [SMOTE: Synthetic Minority Over-Sampling Technique](https://dl.acm.org/doi/10.5555/1622407.1622416) by Nitesh Chawla, Kevin Bowyer, Lawrence Hall and Philip Kegelmeyer (Journal of Artificial Intelligence Research)
 | **[Course]** [Applied Data Mining and Statistical Learning](https://online.stat.psu.edu/stat508/) by Penn State Eberly College of Science
 | **[Course]** [Regression Methods](https://online.stat.psu.edu/stat501/) by Penn State Eberly College of Science
 | **[Course]** [Applied Regression Analysis](https://online.stat.psu.edu/stat462/) by Penn State Eberly College of Science
