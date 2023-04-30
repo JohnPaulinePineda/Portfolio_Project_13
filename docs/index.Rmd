@@ -1938,7 +1938,7 @@ BTREE_ROSE_IN_Test_ROC <- roc(response = BTREE_ROSE_IN_Test$BTREE_Observed,
 
 ## 1.6 Evaluation Summary
 |
-| Model performance comparison:
+| Class imbalance treatment method comparison:
 |
 | **[A]** The class imbalance treatment methods which demonstrated the best and most consistent ROC Curve AUC metrics using the bagged trees model are as follows:
 |      **[A.1]** RU-OUT: Random Undersampling - Outside Resampling
