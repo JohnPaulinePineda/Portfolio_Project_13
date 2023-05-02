@@ -1282,6 +1282,8 @@ BTREE_RO_OUT_Test_ROC <- roc(response = BTREE_RO_OUT_Test$BTREE_Observed,
 
 ###  1.5.4 Synthetic Minority Oversampling Technique  - Outside Resampling  (SMOTE_OUT)
 |
+| [Synthetic Minority Oversampling Technique](https://dl.acm.org/doi/10.5555/1622407.1622416) generates new minority instances between existing instances. The new instances created are not just the copy of existing minority cases, instead the algorithm takes sample of feature space for each target class and its neighbors and then generates new instances that combine the features of the target cases with features of its neighbors.
+|
 | **[A]** The bagged trees model from the <mark style="background-color: #CCECFF">**ipred**</mark>, <mark style="background-color: #CCECFF">**plyr**</mark> and <mark style="background-color: #CCECFF">**e1071**</mark> packages was implemented through the <mark style="background-color: #CCECFF">**caret**</mark> package. 
 |
 | **[B]** The model does not contain any hyperparameter.
@@ -1725,6 +1727,8 @@ BTREE_RO_IN_Test_ROC <- roc(response = BTREE_RO_IN_Test$BTREE_Observed,
 ```
 
 ###  1.5.8 Synthetic Minority Oversampling Technique - Inside Resampling (SMOTE_IN)
+|
+| [Synthetic Minority Oversampling Technique](https://dl.acm.org/doi/10.5555/1622407.1622416) generates new minority instances between existing instances. The new instances created are not just the copy of existing minority cases, instead the algorithm takes sample of feature space for each target class and its neighbors and then generates new instances that combine the features of the target cases with features of its neighbors.
 |
 | **[A]** The bagged trees model from the <mark style="background-color: #CCECFF">**ipred**</mark>, <mark style="background-color: #CCECFF">**plyr**</mark> and <mark style="background-color: #CCECFF">**e1071**</mark> packages was implemented through the <mark style="background-color: #CCECFF">**caret**</mark> package. 
 |
