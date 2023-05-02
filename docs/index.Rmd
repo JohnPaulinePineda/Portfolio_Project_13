@@ -1056,6 +1056,8 @@ BTREE_REF_Test_ROC <- roc(response = BTREE_REF_Test$BTREE_Observed,
 
 ###  1.5.2 Random Undersampling - Outside Resampling (RU_OUT)
 |
+| [Random Undersampling - Outside Resampling](https://dl.acm.org/doi/10.1145/1007730.1007735) performs a random removal of rows for the majority class instances prior to the cross-validation process to make the occurrence of levels with the minority class equal.
+|
 | **[A]** The bagged trees model from the <mark style="background-color: #CCECFF">**ipred**</mark>, <mark style="background-color: #CCECFF">**plyr**</mark> and <mark style="background-color: #CCECFF">**e1071**</mark> packages was implemented through the <mark style="background-color: #CCECFF">**caret**</mark> package. 
 |
 | **[B]** The model does not contain any hyperparameter.
@@ -1280,9 +1282,9 @@ BTREE_RO_OUT_Test_ROC <- roc(response = BTREE_RO_OUT_Test$BTREE_Observed,
 
 ```
 
-###  1.5.4 Synthetic Minority Oversampling Technique  - Outside Resampling  (SMOTE_OUT)
+###  1.5.4 Synthetic Minority Oversampling Technique - Outside Resampling  (SMOTE_OUT)
 |
-| [Synthetic Minority Oversampling Technique](https://dl.acm.org/doi/10.5555/1622407.1622416) generates new minority instances between existing instances. The new instances created are not just the copy of existing minority cases, instead the algorithm takes sample of feature space for each target class and its neighbors and then generates new instances that combine the features of the target cases with features of its neighbors.
+| [Synthetic Minority Oversampling Technique - Outside Resampling ](https://dl.acm.org/doi/10.5555/1622407.1622416) generates new minority instances between existing instances prior to the cross-validation process. The new instances created are not just the copy of existing minority cases, instead the algorithm takes sample of feature space for each target class and its neighbors and then generates new instances that combine the features of the target cases with features of its neighbors.
 |
 | **[A]** The bagged trees model from the <mark style="background-color: #CCECFF">**ipred**</mark>, <mark style="background-color: #CCECFF">**plyr**</mark> and <mark style="background-color: #CCECFF">**e1071**</mark> packages was implemented through the <mark style="background-color: #CCECFF">**caret**</mark> package. 
 |
@@ -1397,7 +1399,7 @@ BTREE_SMOTE_OUT_Test_ROC <- roc(response = BTREE_SMOTE_OUT_Test$BTREE_Observed,
 
 ###  1.5.5 Random Oversampling Examples - Outside Resampling  (ROSE_OUT)
 |
-| [Random Oversampling Examples](https://link.springer.com/article/10.1007/s10618-012-0295-5) generates synthetic data by enlarging the feature space of minority and majority class instances. The algorithm draws new examples from a conditional kernel density estimate of the two classes. The kernel is a normal product function centered at each of the instances with diagonal covariance matrix defined with the width of the neighborhood which is the asymptotically optimal smoothing matrix under the assumption of multivariate normality. 
+| [Random Oversampling Examples - Outside Resampling](https://link.springer.com/article/10.1007/s10618-012-0295-5) generates synthetic data by enlarging the feature space of minority and majority class instances prior to the cross-validation process. The algorithm draws new examples from a conditional kernel density estimate of the two classes. The kernel is a normal product function centered at each of the instances with diagonal covariance matrix defined with the width of the neighborhood which is the asymptotically optimal smoothing matrix under the assumption of multivariate normality. 
 |
 | **[A]** The bagged trees model from the <mark style="background-color: #CCECFF">**ipred**</mark>, <mark style="background-color: #CCECFF">**plyr**</mark> and <mark style="background-color: #CCECFF">**e1071**</mark> packages was implemented through the <mark style="background-color: #CCECFF">**caret**</mark> package. 
 |
@@ -1513,6 +1515,8 @@ BTREE_ROSE_OUT_Test_ROC <- roc(response = BTREE_ROSE_OUT_Test$BTREE_Observed,
 ```
 
 ###  1.5.6 Random Undersampling - Inside Resampling (RU_IN)
+|
+| [Random Undersampling - Inside Resampling](https://dl.acm.org/doi/10.1145/1007730.1007735) performs a random removal of rows for the majority class instances within the cross-validation process to make the occurrence of levels with the minority class equal.
 |
 | **[A]** The bagged trees model from the <mark style="background-color: #CCECFF">**ipred**</mark>, <mark style="background-color: #CCECFF">**plyr**</mark> and <mark style="background-color: #CCECFF">**e1071**</mark> packages was implemented through the <mark style="background-color: #CCECFF">**caret**</mark> package. 
 |
@@ -1728,7 +1732,7 @@ BTREE_RO_IN_Test_ROC <- roc(response = BTREE_RO_IN_Test$BTREE_Observed,
 
 ###  1.5.8 Synthetic Minority Oversampling Technique - Inside Resampling (SMOTE_IN)
 |
-| [Synthetic Minority Oversampling Technique](https://dl.acm.org/doi/10.5555/1622407.1622416) generates new minority instances between existing instances. The new instances created are not just the copy of existing minority cases, instead the algorithm takes sample of feature space for each target class and its neighbors and then generates new instances that combine the features of the target cases with features of its neighbors.
+| [Synthetic Minority Oversampling Technique - Inside Resampling](https://dl.acm.org/doi/10.5555/1622407.1622416) generates new minority instances between existing instances within the cross-validation process. The new instances created are not just the copy of existing minority cases, instead the algorithm takes sample of feature space for each target class and its neighbors and then generates new instances that combine the features of the target cases with features of its neighbors.
 |
 | **[A]** The bagged trees model from the <mark style="background-color: #CCECFF">**ipred**</mark>, <mark style="background-color: #CCECFF">**plyr**</mark> and <mark style="background-color: #CCECFF">**e1071**</mark> packages was implemented through the <mark style="background-color: #CCECFF">**caret**</mark> package. 
 |
@@ -1837,7 +1841,7 @@ BTREE_SMOTE_IN_Test_ROC <- roc(response = BTREE_SMOTE_IN_Test$BTREE_Observed,
 
 ###  1.5.9 Random Oversampling Examples - Inside Resampling (ROSE_IN)
 |
-| [Random Oversampling Examples](https://link.springer.com/article/10.1007/s10618-012-0295-5) generates synthetic data by enlarging the feature space of minority and majority class instances. The algorithm draws new examples from a conditional kernel density estimate of the two classes. The kernel is a normal product function centered at each of the instances with diagonal covariance matrix defined with the width of the neighborhood which is the asymptotically optimal smoothing matrix under the assumption of multivariate normality. 
+| [Random Oversampling Examples - Inside Resampling](https://link.springer.com/article/10.1007/s10618-012-0295-5) generates synthetic data by enlarging the feature space of minority and majority class instances within the cross-validation process. The algorithm draws new examples from a conditional kernel density estimate of the two classes. The kernel is a normal product function centered at each of the instances with diagonal covariance matrix defined with the width of the neighborhood which is the asymptotically optimal smoothing matrix under the assumption of multivariate normality. 
 |
 | **[A]** The bagged trees model from the <mark style="background-color: #CCECFF">**ipred**</mark>, <mark style="background-color: #CCECFF">**plyr**</mark> and <mark style="background-color: #CCECFF">**e1071**</mark> packages was implemented through the <mark style="background-color: #CCECFF">**caret**</mark> package. 
 |

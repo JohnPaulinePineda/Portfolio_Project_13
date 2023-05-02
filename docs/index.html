@@ -7686,6 +7686,11 @@ model is summarized as follows:<br />
 <div id="random-undersampling---outside-resampling-ru_out" class="section level3">
 <h3>1.5.2 Random Undersampling - Outside Resampling (RU_OUT)</h3>
 <div class="line-block"><br />
+<a href="https://dl.acm.org/doi/10.1145/1007730.1007735">Random
+Undersampling - Outside Resampling</a> performs a random removal of rows
+for the majority class instances prior to the cross-validation process
+to make the occurrence of levels with the minority class equal.<br />
+<br />
 <strong>[A]</strong> The bagged trees model from the
 <mark style="background-color: #CCECFF"><strong>ipred</strong></mark>,
 <mark style="background-color: #CCECFF"><strong>plyr</strong></mark> and
@@ -8068,8 +8073,9 @@ model is summarized as follows:<br />
 (SMOTE_OUT)</h3>
 <div class="line-block"><br />
 <a href="https://dl.acm.org/doi/10.5555/1622407.1622416">Synthetic
-Minority Oversampling Technique</a> generates new minority instances
-between existing instances. The new instances created are not just the
+Minority Oversampling Technique - Outside Resampling</a> generates new
+minority instances between existing instances prior to the
+cross-validation process. The new instances created are not just the
 copy of existing minority cases, instead the algorithm takes sample of
 feature space for each target class and its neighbors and then generates
 new instances that combine the features of the target cases with
@@ -8267,11 +8273,12 @@ model is summarized as follows:<br />
 (ROSE_OUT)</h3>
 <div class="line-block"><br />
 <a href="https://link.springer.com/article/10.1007/s10618-012-0295-5">Random
-Oversampling Examples</a> generates synthetic data by enlarging the
-feature space of minority and majority class instances. The algorithm
-draws new examples from a conditional kernel density estimate of the two
-classes. The kernel is a normal product function centered at each of the
-instances with diagonal covariance matrix defined with the width of the
+Oversampling Examples - Outside Resampling</a> generates synthetic data
+by enlarging the feature space of minority and majority class instances
+prior to the cross-validation process. The algorithm draws new examples
+from a conditional kernel density estimate of the two classes. The
+kernel is a normal product function centered at each of the instances
+with diagonal covariance matrix defined with the width of the
 neighborhood which is the asymptotically optimal smoothing matrix under
 the assumption of multivariate normality.<br />
 <br />
@@ -8472,6 +8479,11 @@ model is summarized as follows:<br />
 <div id="random-undersampling---inside-resampling-ru_in" class="section level3">
 <h3>1.5.6 Random Undersampling - Inside Resampling (RU_IN)</h3>
 <div class="line-block"><br />
+<a href="https://dl.acm.org/doi/10.1145/1007730.1007735">Random
+Undersampling - Inside Resampling</a> performs a random removal of rows
+for the majority class instances within the cross-validation process to
+make the occurrence of levels with the minority class equal.<br />
+<br />
 <strong>[A]</strong> The bagged trees model from the
 <mark style="background-color: #CCECFF"><strong>ipred</strong></mark>,
 <mark style="background-color: #CCECFF"><strong>plyr</strong></mark> and
@@ -8842,8 +8854,9 @@ model is summarized as follows:<br />
 (SMOTE_IN)</h3>
 <div class="line-block"><br />
 <a href="https://dl.acm.org/doi/10.5555/1622407.1622416">Synthetic
-Minority Oversampling Technique</a> generates new minority instances
-between existing instances. The new instances created are not just the
+Minority Oversampling Technique - Inside Resampling</a> generates new
+minority instances between existing instances within the
+cross-validation process. The new instances created are not just the
 copy of existing minority cases, instead the algorithm takes sample of
 feature space for each target class and its neighbors and then generates
 new instances that combine the features of the target cases with
@@ -9035,11 +9048,12 @@ model is summarized as follows:<br />
 (ROSE_IN)</h3>
 <div class="line-block"><br />
 <a href="https://link.springer.com/article/10.1007/s10618-012-0295-5">Random
-Oversampling Examples</a> generates synthetic data by enlarging the
-feature space of minority and majority class instances. The algorithm
-draws new examples from a conditional kernel density estimate of the two
-classes. The kernel is a normal product function centered at each of the
-instances with diagonal covariance matrix defined with the width of the
+Oversampling Examples - Inside Resampling</a> generates synthetic data
+by enlarging the feature space of minority and majority class instances
+within the cross-validation process. The algorithm draws new examples
+from a conditional kernel density estimate of the two classes. The
+kernel is a normal product function centered at each of the instances
+with diagonal covariance matrix defined with the width of the
 neighborhood which is the asymptotically optimal smoothing matrix under
 the assumption of multivariate normality.<br />
 <br />
