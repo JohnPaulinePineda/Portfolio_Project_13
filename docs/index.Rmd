@@ -1395,6 +1395,8 @@ BTREE_SMOTE_OUT_Test_ROC <- roc(response = BTREE_SMOTE_OUT_Test$BTREE_Observed,
 
 ###  1.5.5 Random Oversampling Examples - Outside Resampling  (ROSE_OUT)
 |
+| [Random Oversampling Examples](https://link.springer.com/article/10.1007/s10618-012-0295-5) generates synthetic data by enlarging the feature space of minority and majority class instances. The algorithm draws new examples from a conditional kernel density estimate of the two classes. The kernel is a normal product function centered at each of the instances with diagonal covariance matrix defined with the width of the neighborhood which is the asymptotically optimal smoothing matrix under the assumption of multivariate normality. 
+|
 | **[A]** The bagged trees model from the <mark style="background-color: #CCECFF">**ipred**</mark>, <mark style="background-color: #CCECFF">**plyr**</mark> and <mark style="background-color: #CCECFF">**e1071**</mark> packages was implemented through the <mark style="background-color: #CCECFF">**caret**</mark> package. 
 |
 | **[B]** The model does not contain any hyperparameter.
@@ -1830,6 +1832,8 @@ BTREE_SMOTE_IN_Test_ROC <- roc(response = BTREE_SMOTE_IN_Test$BTREE_Observed,
 ```
 
 ###  1.5.9 Random Oversampling Examples - Inside Resampling (ROSE_IN)
+|
+| [Random Oversampling Examples](https://link.springer.com/article/10.1007/s10618-012-0295-5) generates synthetic data by enlarging the feature space of minority and majority class instances. The algorithm draws new examples from a conditional kernel density estimate of the two classes. The kernel is a normal product function centered at each of the instances with diagonal covariance matrix defined with the width of the neighborhood which is the asymptotically optimal smoothing matrix under the assumption of multivariate normality. 
 |
 | **[A]** The bagged trees model from the <mark style="background-color: #CCECFF">**ipred**</mark>, <mark style="background-color: #CCECFF">**plyr**</mark> and <mark style="background-color: #CCECFF">**e1071**</mark> packages was implemented through the <mark style="background-color: #CCECFF">**caret**</mark> package. 
 |
