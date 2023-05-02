@@ -1169,7 +1169,9 @@ BTREE_RU_OUT_Test_ROC <- roc(response = BTREE_RU_OUT_Test$BTREE_Observed,
 
 ```
 
-###  1.5.3 Random Oversampling - Outside Resampling  (RO_OUT)
+###  1.5.3 Random Oversampling - Outside Resampling (RO_OUT)
+|
+| [Random Upsampling- Outside Resampling ](https://dl.acm.org/doi/10.1145/1007730.1007735) performs a random replication of rows for the minority class instances prior to the cross-validation process to make the occurrence of levels with the majority class equal.
 |
 | **[A]** The bagged trees model from the <mark style="background-color: #CCECFF">**ipred**</mark>, <mark style="background-color: #CCECFF">**plyr**</mark> and <mark style="background-color: #CCECFF">**e1071**</mark> packages was implemented through the <mark style="background-color: #CCECFF">**caret**</mark> package. 
 |
@@ -1624,6 +1626,8 @@ BTREE_RU_IN_Test_ROC <- roc(response = BTREE_RU_IN_Test$BTREE_Observed,
 ```
 
 ###  1.5.7 Random Oversampling - Inside Resampling (RO_IN)
+|
+| [Random Upsampling- Inside Resampling ](https://dl.acm.org/doi/10.1145/1007730.1007735) performs a random replication of rows for the minority class instances within the cross-validation process to make the occurrence of levels with the majority class equal.
 |
 | **[A]** The bagged trees model from the <mark style="background-color: #CCECFF">**ipred**</mark>, <mark style="background-color: #CCECFF">**plyr**</mark> and <mark style="background-color: #CCECFF">**e1071**</mark> packages was implemented through the <mark style="background-color: #CCECFF">**caret**</mark> package. 
 |
