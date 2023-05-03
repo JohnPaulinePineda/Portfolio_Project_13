@@ -2173,7 +2173,7 @@ colnames(BTREE_TEST_SUMMARY) <- c("LCL", "ROC", "UCL")
 | **[Publication]** [SMOTE: Synthetic Minority Over-Sampling Technique](https://dl.acm.org/doi/10.5555/1622407.1622416) by Nitesh Chawla, Kevin Bowyer, Lawrence Hall and Philip Kegelmeyer (Journal of Artificial Intelligence Research)
 | **[Publication]** [Training and Assessing Classification Rules with Imbalanced Data](https://link.springer.com/article/10.1007/s10618-012-0295-5) by Giovanna Menardi and Nicola Torelli (Data Mining and Knowledge Discovery)
 | **[Publication]** [A Study of the Behavior of Several Methods for Balancing Machine Learning Training Data](https://dl.acm.org/doi/10.1145/1007730.1007735) by Gustavo Batista, Ronaldo Prati and Maria Carolina Monard (ACM SIGKDD Explorations Newsletter)
-| **[Publication]** [A Survey of Predictive Modelling under Imbalanced Distributiona](https://arxiv.org/abs/1505.01658) by Paula Branco, Luis Torgo and Rita Ribeiro (Arxiv Cornell University)
+| **[Publication]** [A Survey of Predictive Modelling under Imbalanced Distributions](https://arxiv.org/abs/1505.01658) by Paula Branco, Luis Torgo and Rita Ribeiro (Arxiv Cornell University)
 | **[Course]** [Applied Data Mining and Statistical Learning](https://online.stat.psu.edu/stat508/) by Penn State Eberly College of Science
 | **[Course]** [Regression Methods](https://online.stat.psu.edu/stat501/) by Penn State Eberly College of Science
 | **[Course]** [Applied Regression Analysis](https://online.stat.psu.edu/stat462/) by Penn State Eberly College of Science
