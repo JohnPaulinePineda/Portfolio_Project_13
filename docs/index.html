@@ -514,9 +514,21 @@ References</strong></a></li>
 <div id="table-of-contents" class="section level1">
 <h1><strong>1. Table of Contents</strong></h1>
 <div class="line-block"><br />
-This document presents a non-exhaustive list of remedial procedures
-applied for severe class imbalance using various helpful packages in
-<mark style="background-color: #CCECFF"><strong>R</strong></mark>.<br />
+This project explores different remedial procedures for handling
+imbalanced data for classification using various helpful packages in
+<mark style="background-color: #CCECFF"><strong>R</strong></mark>. Using
+a <strong>Bagged Trees</strong> model structure, methods applied in the
+analysis to address imbalanced data included the <strong>Random
+Undersampling</strong>, <strong>Random Oversampling</strong>,
+<strong>Synthetic Minority Oversampling Technique</strong> and
+<strong>Random Oversampling Examples</strong>. All procedures were
+implemented both within and independent to the model internal validation
+process. The resulting predictions derived from the candidate models
+applying various remedial procedures were evaluated in terms of their
+discrimination power using the receiver operating characteristic (ROC)
+curve area under the curve (AUC) metric. The ROC AUC values were
+compared to that of the baseline model without any form of data
+imbalance treatment.<br />
 <br />
 Data resampling and synthetic data generation address imbalanced
 classification problems by changing the data set used for model training
@@ -9375,17 +9387,17 @@ Class imbalance treatment method comparison:<br />
 <br />
 <strong>[A]</strong> The class imbalance treatment methods which
 demonstrated the best and most consistent ROC Curve AUC metrics using
-the bagged trees model are as follows:<br />
-     <strong>[A.1]</strong> RU-OUT: Random Undersampling - Outside
-Resampling<br />
+the <strong>Bagged Trees</strong> model are as follows:<br />
+     <strong>[A.1]</strong> <strong>RU-OUT: Random Undersampling -
+Outside Resampling</strong><br />
             <strong>[A.1.1]</strong> Test ROC Curve AUC = 0.90909,
 Cross-Validation ROC Curve AUC = 0.82000<br />
-     <strong>[A.2]</strong> RU-IN: Random Undersampling - Inside
-Resampling<br />
+     <strong>[A.2]</strong> <strong>RU-IN: Random Undersampling - Inside
+Resampling</strong><br />
             <strong>[A.2.1]</strong> Test ROC Curve AUC = 0.88744,
 Cross-Validation ROC Curve AUC = 0.79089<br />
-     <strong>[A.3]</strong> ROSE-OUT: Random Oversampling Examples -
-Outside Resampling<br />
+     <strong>[A.3]</strong> <strong>ROSE-OUT: Random Oversampling
+Examples - Outside Resampling</strong><br />
             <strong>[A.3.1]</strong> Test ROC Curve AUC = 0.80087,
 Cross-Validation ROC Curve AUC = 0.86373<br />
 </div>
