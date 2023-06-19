@@ -36,6 +36,9 @@ knitr::opts_chunk$set(echo = TRUE, fig.width=15, fig.height=10)
 |      **[B.2]** 60/61 predictors = All remaining variables (60/60 numeric)
 |     
 | 
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.1, warning=FALSE, message=FALSE}
 ##################################
 # Loading R libraries
@@ -118,6 +121,9 @@ PDA <- Sonar_Train
 )
 
 ```
+
+</details>
+
 ##  1.2 Data Quality Assessment
 |
 | Data quality assessment:
@@ -147,6 +153,10 @@ PDA <- Sonar_Train
 |
 | **[D]** No high skewness noted for any variable with Skewness>3 or Skewness<(-3).
 |
+|
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.2, warning=FALSE, message=FALSE}
 ##################################
 # Loading dataset
@@ -363,6 +373,9 @@ if (length(names(DQA.Predictors.Numeric))==0) {
 }
 
 ```
+
+</details>
+
 ##  1.3 Data Preprocessing
 
 ###  1.3.1 Outlier
@@ -409,6 +422,10 @@ if (length(names(DQA.Predictors.Numeric))==0) {
 |      **[A.38]** <span style="color: #FF0000">V59</span> variable (6 outliers detected)
 |      **[A.39]** <span style="color: #FF0000">V60</span> variable (3 outliers detected)
 |
+|
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.3.1, warning=FALSE, message=FALSE, fig.width=15, fig.height=3}
 ##################################
 # Loading dataset
@@ -459,6 +476,9 @@ print(paste0(NumericPredictorWithOutlierCount, " numeric variable(s) were noted 
 dim(DPA.Predictors.Numeric)
 
 ```
+
+</details>
+
 ###  1.3.2 Zero and Near-Zero Variance
 |
 | Zero and near-zero variance data assessment:
@@ -467,6 +487,10 @@ dim(DPA.Predictors.Numeric)
 |
 | **[B]** No low variance noted for any variables using a preprocessing summary from the <mark style="background-color: #CCECFF">**caret**</mark> package. The <span style="color: #0000FF">nearZeroVar</span> method using both the <span style="color: #0000FF">freqCut</span> and <span style="color: #0000FF">uniqueCut</span> criteria set at 95/5 and 10, respectively, were applied on the dataset.
 |
+|
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.3.2, warning=FALSE, message=FALSE}
 ##################################
 # Loading dataset
@@ -533,12 +557,19 @@ if ((nrow(DPA_LowVariance[DPA_LowVariance$nzv,]))==0){
 } 
 
 ```
+
+</details>
+
 ###  1.3.3 Collinearity
 |
 | High collinearity data assessment:
 |
 | **[A]** No high correlation > 95% were noted for any variable as confirmed using the preprocessing summaries from the <mark style="background-color: #CCECFF">**caret**</mark> and <mark style="background-color: #CCECFF">**lares**</mark> packages.
 |
+|
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.3.3, warning=FALSE, message=FALSE}
 ##################################
 # Loading dataset
@@ -639,12 +670,19 @@ if (DPA_HighlyCorrelatedCount > 0) {
 }
 
 ```
+
+</details>
+
 ###  1.3.4 Linear Dependencies
 |
 | Linear dependency data assessment:
 |
 | **[A]** No linear dependencies noted for any subset of variables using the preprocessing summary from the <mark style="background-color: #CCECFF">**caret**</mark> package applying the <span style="color: #0000FF">findLinearCombos</span> method which utilizes the QR decomposition of a matrix to enumerate sets of linear combinations (if they exist). 
 |
+|
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.3.4, warning=FALSE, message=FALSE}
 ##################################
 # Loading dataset
@@ -732,12 +770,18 @@ if (DPA_LinearlyDependentCount > 0) {
 
 ```
 
+</details>
+
 ###  1.3.5 Shape Transformation
 |
 | Data transformation assessment:
 |
 | **[A]** A number of numeric variables in the dataset were observed to be right-skewed which required shape transformation for data distribution stability. Considering that all numeric variables were strictly positive values, the <span style="color: #0000FF">BoxCox</span> method from the <mark style="background-color: #CCECFF">**caret**</mark> package was used to transform their distributional shapes.
 |
+|
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.3.5, warning=FALSE, message=FALSE}
 ##################################
 # Loading dataset
@@ -772,12 +816,18 @@ dim(DPA_BoxCoxTransformed)
 
 ```
 
+</details>
+
 ###  1.3.6 Centering and Scaling
 |
 | Centering and scaling data assessment:
 |
 | **[A]** To maintain numerical stability during modelling, centering and scaling transformations were applied on the transformed numeric variables. The <span style="color: #0000FF">center</span> method from the <mark style="background-color: #CCECFF">**caret**</mark> package was implemented which subtracts the average value of a numeric variable to all the values. As a result of centering, the variables had zero mean values. In addition, the <span style="color: #0000FF">scale</span> method, also from the <mark style="background-color: #CCECFF">**caret**</mark> package, was applied which performs a center transformation with each value of the variable divided by its standard deviation. Scaling the data coerced the values to have a common standard deviation of one.
 |
+|
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.3.6, warning=FALSE, message=FALSE}
 ##################################
 # Loading dataset
@@ -818,6 +868,8 @@ dim(DPA.Predictors.Numeric_BoxCoxTransformed_CenteredScaledTransformed)
 
 ```
 
+</details>
+
 ###  1.3.7 Pre-Processed Dataset
 |
 | Preliminary dataset assessment:
@@ -838,6 +890,10 @@ dim(DPA.Predictors.Numeric_BoxCoxTransformed_CenteredScaledTransformed)
 |      **[C.4]** No predictors removed due to high correlation
 |      **[C.5]** No predictors removed due to linear dependencies
 |
+|
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.3.7, warning=FALSE, message=FALSE}
 ##################################
 # Creating the pre-modelling
@@ -891,6 +947,9 @@ PMA_PreModelling_Test <- PMA_Test_BoxCoxTransformed_CenteredScaledTransformed
 dim(PMA_PreModelling_Test)
 
 ```
+
+</details>
+
 ## 1.4 Data Exploration
 |
 | Exploratory data analysis:
@@ -910,6 +969,10 @@ dim(PMA_PreModelling_Test)
 |      **[A.12]** <span style="color: #FF0000">V50</span> variable (numeric)
 |      **[A.13]** <span style="color: #FF0000">V51</span> variable (numeric)
 |
+|
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.4, warning=FALSE, message=FALSE}
 ##################################
 # Loading dataset
@@ -941,6 +1004,8 @@ featurePlot(x = EDA.Predictors.Numeric,
 
 ```
 
+</details>
+
 ## 1.5 Remedial Methods Applied for Class Imbalance using Bagged Trees
 
 ###  1.5.1 Original Data (REF)
@@ -971,6 +1036,10 @@ featurePlot(x = EDA.Predictors.Numeric,
 | **[F]** The independent test model performance of the final model is summarized as follows:
 |      **[F.1]** ROC Curve AUC = 0.64069
 |
+|
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.5.1, warning=FALSE, message=FALSE}
 ##################################
 # Verifying the class distribution
@@ -1056,6 +1125,8 @@ BTREE_REF_Test_ROC <- roc(response = BTREE_REF_Test$BTREE_Observed,
 
 ```
 
+</details>
+
 ###  1.5.2 Random Undersampling - Outside Resampling (RU_OUT)
 |
 | [Bagged Trees](https://link.springer.com/article/10.1007/BF00058655) combine bootstrapping and decision trees to construct an ensemble. The modeling process involves generating bootstrap samples of the original data, training an unpruned decision tree for each bootstrap subset of the data and implementing an ensemble voting for all the individual decision tree predictions to formulate the final prediction. The bootstrap aggregation (bagging) mechanism improves the model performance by reducing variance. Although the individual decision trees in the model are identically distributed, they are not necessarily independent and share similar structure. This similarity, known as tree correlation, is an essential factor that prevents further reduction of variance.
@@ -1086,6 +1157,10 @@ BTREE_REF_Test_ROC <- roc(response = BTREE_REF_Test$BTREE_Observed,
 | **[F]** The independent test model performance of the final model is summarized as follows:
 |      **[F.1]** ROC Curve AUC = 0.90909
 |
+|
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.5.2, warning=FALSE, message=FALSE}
 ##################################
 # Conducting random undersampling
@@ -1173,6 +1248,8 @@ BTREE_RU_OUT_Test_ROC <- roc(response = BTREE_RU_OUT_Test$BTREE_Observed,
 
 ```
 
+</details>
+
 ###  1.5.3 Random Oversampling - Outside Resampling (RO_OUT)
 |
 | [Bagged Trees](https://link.springer.com/article/10.1007/BF00058655) combine bootstrapping and decision trees to construct an ensemble. The modeling process involves generating bootstrap samples of the original data, training an unpruned decision tree for each bootstrap subset of the data and implementing an ensemble voting for all the individual decision tree predictions to formulate the final prediction. The bootstrap aggregation (bagging) mechanism improves the model performance by reducing variance. Although the individual decision trees in the model are identically distributed, they are not necessarily independent and share similar structure. This similarity, known as tree correlation, is an essential factor that prevents further reduction of variance.
@@ -1203,6 +1280,10 @@ BTREE_RU_OUT_Test_ROC <- roc(response = BTREE_RU_OUT_Test$BTREE_Observed,
 | **[F]** The independent test model performance of the final model is summarized as follows:
 |      **[F.1]** ROC Curve AUC = 0.65801
 |
+|
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.5.3, warning=FALSE, message=FALSE}
 ##################################
 # Conducting random oversampling
@@ -1290,6 +1371,8 @@ BTREE_RO_OUT_Test_ROC <- roc(response = BTREE_RO_OUT_Test$BTREE_Observed,
 
 ```
 
+</details>
+
 ###  1.5.4 Synthetic Minority Oversampling Technique - Outside Resampling  (SMOTE_OUT)
 |
 | [Bagged Trees](https://link.springer.com/article/10.1007/BF00058655) combine bootstrapping and decision trees to construct an ensemble. The modeling process involves generating bootstrap samples of the original data, training an unpruned decision tree for each bootstrap subset of the data and implementing an ensemble voting for all the individual decision tree predictions to formulate the final prediction. The bootstrap aggregation (bagging) mechanism improves the model performance by reducing variance. Although the individual decision trees in the model are identically distributed, they are not necessarily independent and share similar structure. This similarity, known as tree correlation, is an essential factor that prevents further reduction of variance.
@@ -1320,6 +1403,10 @@ BTREE_RO_OUT_Test_ROC <- roc(response = BTREE_RO_OUT_Test$BTREE_Observed,
 | **[F]** The independent test model performance of the final model is summarized as follows:
 |      **[F.1]** ROC Curve AUC = 0.71645
 |
+|
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.5.4, warning=FALSE, message=FALSE}
 ##################################
 # Conducting synthetic minority oversampling technique
@@ -1407,6 +1494,8 @@ BTREE_SMOTE_OUT_Test_ROC <- roc(response = BTREE_SMOTE_OUT_Test$BTREE_Observed,
 
 ```
 
+</details>
+
 ###  1.5.5 Random Oversampling Examples - Outside Resampling  (ROSE_OUT)
 |
 | [Bagged Trees](https://link.springer.com/article/10.1007/BF00058655) combine bootstrapping and decision trees to construct an ensemble. The modeling process involves generating bootstrap samples of the original data, training an unpruned decision tree for each bootstrap subset of the data and implementing an ensemble voting for all the individual decision tree predictions to formulate the final prediction. The bootstrap aggregation (bagging) mechanism improves the model performance by reducing variance. Although the individual decision trees in the model are identically distributed, they are not necessarily independent and share similar structure. This similarity, known as tree correlation, is an essential factor that prevents further reduction of variance.
@@ -1437,6 +1526,10 @@ BTREE_SMOTE_OUT_Test_ROC <- roc(response = BTREE_SMOTE_OUT_Test$BTREE_Observed,
 | **[F]** The independent test model performance of the final model is summarized as follows:
 |      **[F.1]** ROC Curve AUC = 0.80087
 |
+|
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.5.5, warning=FALSE, message=FALSE}
 ##################################
 # Conducting random oversampling examples
@@ -1526,6 +1619,8 @@ BTREE_ROSE_OUT_Test_ROC <- roc(response = BTREE_ROSE_OUT_Test$BTREE_Observed,
 
 ```
 
+</details>
+
 ###  1.5.6 Random Undersampling - Inside Resampling (RU_IN)
 |
 | [Bagged Trees](https://link.springer.com/article/10.1007/BF00058655) combine bootstrapping and decision trees to construct an ensemble. The modeling process involves generating bootstrap samples of the original data, training an unpruned decision tree for each bootstrap subset of the data and implementing an ensemble voting for all the individual decision tree predictions to formulate the final prediction. The bootstrap aggregation (bagging) mechanism improves the model performance by reducing variance. Although the individual decision trees in the model are identically distributed, they are not necessarily independent and share similar structure. This similarity, known as tree correlation, is an essential factor that prevents further reduction of variance. 
@@ -1556,6 +1651,10 @@ BTREE_ROSE_OUT_Test_ROC <- roc(response = BTREE_ROSE_OUT_Test$BTREE_Observed,
 | **[F]** The independent test model performance of the final model is summarized as follows:
 |      **[F.1]** ROC Curve AUC = 0.88744
 |
+|
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.5.6, warning=FALSE, message=FALSE}
 ##################################
 # Creating consistent fold assignments 
@@ -1637,6 +1736,8 @@ BTREE_RU_IN_Test_ROC <- roc(response = BTREE_RU_IN_Test$BTREE_Observed,
 
 ```
 
+</details>
+
 ###  1.5.7 Random Oversampling - Inside Resampling (RO_IN)
 |
 | [Bagged Trees](https://link.springer.com/article/10.1007/BF00058655) combine bootstrapping and decision trees to construct an ensemble. The modeling process involves generating bootstrap samples of the original data, training an unpruned decision tree for each bootstrap subset of the data and implementing an ensemble voting for all the individual decision tree predictions to formulate the final prediction. The bootstrap aggregation (bagging) mechanism improves the model performance by reducing variance. Although the individual decision trees in the model are identically distributed, they are not necessarily independent and share similar structure. This similarity, known as tree correlation, is an essential factor that prevents further reduction of variance.
@@ -1667,6 +1768,10 @@ BTREE_RU_IN_Test_ROC <- roc(response = BTREE_RU_IN_Test$BTREE_Observed,
 | **[F]** The independent test model performance of the final model is summarized as follows:
 |      **[F.1]** ROC Curve AUC = 0.72727
 |
+|
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.5.7, warning=FALSE, message=FALSE}
 ##################################
 # Creating consistent fold assignments 
@@ -1748,6 +1853,8 @@ BTREE_RO_IN_Test_ROC <- roc(response = BTREE_RO_IN_Test$BTREE_Observed,
 
 ```
 
+</details>
+
 ###  1.5.8 Synthetic Minority Oversampling Technique - Inside Resampling (SMOTE_IN)
 |
 | [Bagged Trees](https://link.springer.com/article/10.1007/BF00058655) combine bootstrapping and decision trees to construct an ensemble. The modeling process involves generating bootstrap samples of the original data, training an unpruned decision tree for each bootstrap subset of the data and implementing an ensemble voting for all the individual decision tree predictions to formulate the final prediction. The bootstrap aggregation (bagging) mechanism improves the model performance by reducing variance. Although the individual decision trees in the model are identically distributed, they are not necessarily independent and share similar structure. This similarity, known as tree correlation, is an essential factor that prevents further reduction of variance.
@@ -1778,6 +1885,10 @@ BTREE_RO_IN_Test_ROC <- roc(response = BTREE_RO_IN_Test$BTREE_Observed,
 | **[F]** The independent test model performance of the final model is summarized as follows:
 |      **[F.1]** ROC Curve AUC = 0.68831
 |
+|
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.5.8, warning=FALSE, message=FALSE}
 ##################################
 # Creating consistent fold assignments 
@@ -1859,6 +1970,8 @@ BTREE_SMOTE_IN_Test_ROC <- roc(response = BTREE_SMOTE_IN_Test$BTREE_Observed,
 
 ```
 
+</details>
+
 ###  1.5.9 Random Oversampling Examples - Inside Resampling (ROSE_IN)
 |
 | [Bagged Trees](https://link.springer.com/article/10.1007/BF00058655) combine bootstrapping and decision trees to construct an ensemble. The modeling process involves generating bootstrap samples of the original data, training an unpruned decision tree for each bootstrap subset of the data and implementing an ensemble voting for all the individual decision tree predictions to formulate the final prediction. The bootstrap aggregation (bagging) mechanism improves the model performance by reducing variance. Although the individual decision trees in the model are identically distributed, they are not necessarily independent and share similar structure. This similarity, known as tree correlation, is an essential factor that prevents further reduction of variance. 
@@ -1889,6 +2002,10 @@ BTREE_SMOTE_IN_Test_ROC <- roc(response = BTREE_SMOTE_IN_Test$BTREE_Observed,
 | **[F]** The independent test model performance of the final model is summarized as follows:
 |      **[F.1]** ROC Curve AUC = 0.69697
 |
+|
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.5.9, warning=FALSE, message=FALSE}
 ##################################
 # Creating consistent fold assignments
@@ -1970,6 +2087,8 @@ BTREE_ROSE_IN_Test_ROC <- roc(response = BTREE_ROSE_IN_Test$BTREE_Observed,
 
 ```
 
+</details>
+
 ## 1.6 Evaluation Summary
 |
 | Class imbalance treatment method comparison:
@@ -1982,6 +2101,10 @@ BTREE_ROSE_IN_Test_ROC <- roc(response = BTREE_ROSE_IN_Test$BTREE_Observed,
 |      **[A.3]** **ROSE-OUT: Random Oversampling Examples - Outside Resampling**
 |             **[A.3.1]** Test ROC Curve AUC = 0.80087, Cross-Validation ROC Curve AUC = 0.86373
 |
+|
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.7, warning=FALSE, message=FALSE}
 ##################################
 # Consolidating all evaluation results
@@ -2110,6 +2233,8 @@ colnames(BTREE_TEST_SUMMARY) <- c("LCL", "ROC", "UCL")
 (BTREE_TEST_SUMMARY <- as.data.frame(BTREE_TEST_SUMMARY))
 
 ```
+
+</details>
 
 # **2. References**
 |
