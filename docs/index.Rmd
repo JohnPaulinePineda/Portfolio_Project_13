@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE, fig.width=15, fig.height=10)
 ```
 # **1. Table of Contents**
 |
-| This project explores different remedial procedures for handling imbalanced data for classification using various helpful packages in <mark style="background-color: #CCECFF">**R**</mark>. Using a **Bagged Trees** model structure, methods applied in the analysis to address imbalanced data included the **Random Undersampling**, **Random Oversampling**, **Synthetic Minority Oversampling Technique** and **Random Oversampling Examples**. All procedures were implemented both within and independent to the model internal validation process. The resulting predictions derived from the candidate models applying various remedial procedures were evaluated in terms of their discrimination power using the area under the receiver operating characteristic curve (AUROC) metric. The AUROC values were compared to that of the baseline model without any form of data imbalance treatment.
+| This project explores different remedial procedures for handling imbalanced data for classification using various helpful packages in <mark style="background-color: #CCECFF">**R**</mark>. Using a **Bagged Trees** model structure, methods applied in the analysis to address imbalanced data included the **Random Undersampling**, **Random Oversampling**, **Synthetic Minority Oversampling Technique** and **Random Oversampling Examples**. All procedures were implemented both within and independent to the model internal validation process. The resulting predictions derived from the candidate models applying various remedial procedures were evaluated in terms of their discrimination power using the area under the receiver operating characteristics curve (AUROC) metric. The AUROC values were compared to that of the baseline model without any form of data imbalance treatment. All results were consolidated in a [<span style="color: #FF0000">**Summary**</span>](#summary) presented at the end of the document.
 |
 | Data resampling and synthetic data generation address imbalanced classification problems by changing the data set used for model training to have more balanced data. In data resampling, copies of instances from the under-represented class can be added (called oversampling), or instances from the over-represented class can be deleted (called undersampling), to even-up the classes. In synthetic data generation, new instances are created from the minor class instead of merely creating copies, by selecting two or more similar instances (using a distance measure) and perturbing an instance one attribute at a time by a random amount within the difference to the neighboring instances. The algorithms applied in this study (mostly contained in the <mark style="background-color: #CCECFF">**caret**</mark>, <mark style="background-color: #CCECFF">**themis**</mark> and <mark style="background-color: #CCECFF">**ROSE**</mark> packages attempt to augment imbalanced data prior to model training by updating the original data set to minimize the effect of the disproportionate ratio of instances in each class.
 |
@@ -125,8 +125,6 @@ PDA <- Sonar_Train
 </details>
 
 ##  1.2 Data Quality Assessment
-|
-| Data quality assessment:
 |
 | **[A]** No missing observations noted for any variable.
 |
@@ -380,8 +378,6 @@ if (length(names(DQA.Predictors.Numeric))==0) {
 
 ###  1.3.1 Outlier
 |
-| Outlier data assessment:
-|
 | **[A]** Outliers noted for 39 variables  with the numeric data visualized through a boxplot including observations classified as suspected outliers using the IQR criterion. The IQR criterion means that all observations above the (75th percentile + 1.5 x IQR) or below the (25th percentile - 1.5 x IQR) are suspected outliers, where IQR is the difference between the third quartile (75th percentile) and first quartile (25th percentile). Outlier treatment for numerical stability remains optional depending on potential model requirements for the subsequent steps.
 |      **[A.1]** <span style="color: #FF0000">V1</span> variable (5 outliers detected)
 |      **[A.2]** <span style="color: #FF0000">V2</span> variable (6 outliers detected)
@@ -481,8 +477,6 @@ dim(DPA.Predictors.Numeric)
 
 ###  1.3.2 Zero and Near-Zero Variance
 |
-| Zero and near-zero variance data assessment:
-|
 | **[A]** Low variance noted for 17 variables from the previous data quality assessment using a lower threshold.
 |
 | **[B]** No low variance noted for any variables using a preprocessing summary from the <mark style="background-color: #CCECFF">**caret**</mark> package. The <span style="color: #0000FF">nearZeroVar</span> method using both the <span style="color: #0000FF">freqCut</span> and <span style="color: #0000FF">uniqueCut</span> criteria set at 95/5 and 10, respectively, were applied on the dataset.
@@ -561,8 +555,6 @@ if ((nrow(DPA_LowVariance[DPA_LowVariance$nzv,]))==0){
 </details>
 
 ###  1.3.3 Collinearity
-|
-| High collinearity data assessment:
 |
 | **[A]** No high correlation > 95% were noted for any variable as confirmed using the preprocessing summaries from the <mark style="background-color: #CCECFF">**caret**</mark> and <mark style="background-color: #CCECFF">**lares**</mark> packages.
 |
@@ -675,8 +667,6 @@ if (DPA_HighlyCorrelatedCount > 0) {
 
 ###  1.3.4 Linear Dependencies
 |
-| Linear dependency data assessment:
-|
 | **[A]** No linear dependencies noted for any subset of variables using the preprocessing summary from the <mark style="background-color: #CCECFF">**caret**</mark> package applying the <span style="color: #0000FF">findLinearCombos</span> method which utilizes the QR decomposition of a matrix to enumerate sets of linear combinations (if they exist). 
 |
 |
@@ -774,8 +764,6 @@ if (DPA_LinearlyDependentCount > 0) {
 
 ###  1.3.5 Shape Transformation
 |
-| Data transformation assessment:
-|
 | **[A]** A number of numeric variables in the dataset were observed to be right-skewed which required shape transformation for data distribution stability. Considering that all numeric variables were strictly positive values, the <span style="color: #0000FF">BoxCox</span> method from the <mark style="background-color: #CCECFF">**caret**</mark> package was used to transform their distributional shapes.
 |
 |
@@ -819,8 +807,6 @@ dim(DPA_BoxCoxTransformed)
 </details>
 
 ###  1.3.6 Centering and Scaling
-|
-| Centering and scaling data assessment:
 |
 | **[A]** To maintain numerical stability during modelling, centering and scaling transformations were applied on the transformed numeric variables. The <span style="color: #0000FF">center</span> method from the <mark style="background-color: #CCECFF">**caret**</mark> package was implemented which subtracts the average value of a numeric variable to all the values. As a result of centering, the variables had zero mean values. In addition, the <span style="color: #0000FF">scale</span> method, also from the <mark style="background-color: #CCECFF">**caret**</mark> package, was applied which performs a center transformation with each value of the variable divided by its standard deviation. Scaling the data coerced the values to have a common standard deviation of one.
 |
@@ -871,8 +857,6 @@ dim(DPA.Predictors.Numeric_BoxCoxTransformed_CenteredScaledTransformed)
 </details>
 
 ###  1.3.7 Pre-Processed Dataset
-|
-| Preliminary dataset assessment:
 |
 | **[A]** 136 rows (observations)
 |      **[A.1]** Train Set = 96 observations with class ratio of 80:20
@@ -951,8 +935,6 @@ dim(PMA_PreModelling_Test)
 </details>
 
 ## 1.4 Data Exploration
-|
-| Exploratory data analysis:
 |
 | **[A]** Numeric variables which demonstrated differential relationships with the <span style="color: #FF0000">Class</span> response variable include:
 |      **[A.1]** <span style="color: #FF0000">V1</span> variable (numeric)
@@ -2089,9 +2071,7 @@ BTREE_ROSE_IN_Test_ROC <- roc(response = BTREE_ROSE_IN_Test$BTREE_Observed,
 
 </details>
 
-## 1.6 Evaluation Summary
-|
-| Class imbalance treatment method comparison:
+## 1.6 Consolidated Findings
 |
 | **[A]** The class imbalance treatment methods which demonstrated the best and most consistent AUROC metrics using the **Bagged Trees** model are as follows:
 |      **[A.1]** **RU-OUT: Random Undersampling - Outside Resampling**
@@ -2235,8 +2215,12 @@ colnames(BTREE_TEST_SUMMARY) <- c("LCL", "ROC", "UCL")
 ```
 
 </details>
-
-# **2. References**
+|
+# **2. Summary** <a name="summary"></a>
+|
+| ![](D:/Github_Codes/ProjectPortfolio/Portfolio_Project_13/docs/Project13_Summary.png)
+|
+# **3. References**
 |
 | **[Book]** [Applied Predictive Modeling](http://appliedpredictivemodeling.com/) by Max Kuhn and Kjell Johnson
 | **[Book]** [An Introduction to Statistical Learning](https://www.statlearning.com/) by Gareth James, Daniela Witten, Trevor Hastie and Rob Tibshirani
