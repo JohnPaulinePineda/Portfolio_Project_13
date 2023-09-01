@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE, fig.width=15, fig.height=10)
 ```
 # **1. Table of Contents**
 |
-| This project explores different remedial procedures for handling imbalanced data for classification using various helpful packages in <mark style="background-color: #CCECFF">**R**</mark>. Using a **Bagged Trees** model structure, methods applied in the analysis to address imbalanced data included the **Random Undersampling**, **Random Oversampling**, **Synthetic Minority Oversampling Technique** and **Random Oversampling Examples**. All procedures were implemented both within and independent to the model internal validation process. The resulting predictions derived from the candidate models applying various remedial procedures were evaluated in terms of their discrimination power using the receiver operating characteristic (ROC) curve area under the curve (AUC) metric. The ROC AUC values were compared to that of the baseline model without any form of data imbalance treatment.
+| This project explores different remedial procedures for handling imbalanced data for classification using various helpful packages in <mark style="background-color: #CCECFF">**R**</mark>. Using a **Bagged Trees** model structure, methods applied in the analysis to address imbalanced data included the **Random Undersampling**, **Random Oversampling**, **Synthetic Minority Oversampling Technique** and **Random Oversampling Examples**. All procedures were implemented both within and independent to the model internal validation process. The resulting predictions derived from the candidate models applying various remedial procedures were evaluated in terms of their discrimination power using the area under the receiver operating characteristic curve (AUROC) metric. The AUROC values were compared to that of the baseline model without any form of data imbalance treatment.
 |
 | Data resampling and synthetic data generation address imbalanced classification problems by changing the data set used for model training to have more balanced data. In data resampling, copies of instances from the under-represented class can be added (called oversampling), or instances from the over-represented class can be deleted (called undersampling), to even-up the classes. In synthetic data generation, new instances are created from the minor class instead of merely creating copies, by selecting two or more similar instances (using a distance measure) and perturbing an instance one attribute at a time by a random amount within the difference to the neighboring instances. The algorithms applied in this study (mostly contained in the <mark style="background-color: #CCECFF">**caret**</mark>, <mark style="background-color: #CCECFF">**themis**</mark> and <mark style="background-color: #CCECFF">**ROSE**</mark> packages attempt to augment imbalanced data prior to model training by updating the original data set to minimize the effect of the disproportionate ratio of instances in each class.
 |
@@ -1024,7 +1024,7 @@ featurePlot(x = EDA.Predictors.Numeric,
 |
 | **[D]** The cross-validated model performance of the final model on this data version is summarized as follows:
 |      **[D.1]** Final model configuration is fixed due to the absence of a hyperparameter
-|      **[D.2]** ROC Curve AUC = 0.78151
+|      **[D.2]** AUROC = 0.78151
 |
 | **[E]** The model allows for ranking of predictors in terms of variable importance. The top-performing predictors in the model are as follows:
 |      **[E.1]** <span style="color: #FF0000">V11</span> variable (numeric)
@@ -1034,7 +1034,7 @@ featurePlot(x = EDA.Predictors.Numeric,
 |      **[E.5]** <span style="color: #FF0000">V7</span> variable (numeric)
 |
 | **[F]** The independent test model performance of the final model is summarized as follows:
-|      **[F.1]** ROC Curve AUC = 0.64069
+|      **[F.1]** AUROC = 0.64069
 |
 |
 
@@ -1145,7 +1145,7 @@ BTREE_REF_Test_ROC <- roc(response = BTREE_REF_Test$BTREE_Observed,
 |
 | **[D]** The cross-validated model performance of the final model on this data version is summarized as follows:
 |      **[D.1]** Final model configuration is fixed due to the absence of a hyperparameter
-|      **[D.2]** ROC Curve AUC = 0.82000
+|      **[D.2]** AUROC = 0.82000
 |
 | **[E]** The model allows for ranking of predictors in terms of variable importance. The top-performing predictors in the model are as follows:
 |      **[E.1]** <span style="color: #FF0000">V11</span> variable (numeric)
@@ -1155,7 +1155,7 @@ BTREE_REF_Test_ROC <- roc(response = BTREE_REF_Test$BTREE_Observed,
 |      **[E.5]** <span style="color: #FF0000">V21</span> variable (numeric)
 |
 | **[F]** The independent test model performance of the final model is summarized as follows:
-|      **[F.1]** ROC Curve AUC = 0.90909
+|      **[F.1]** AUROC = 0.90909
 |
 |
 
@@ -1268,7 +1268,7 @@ BTREE_RU_OUT_Test_ROC <- roc(response = BTREE_RU_OUT_Test$BTREE_Observed,
 |
 | **[D]** The cross-validated model performance of the final model on this data version is summarized as follows:
 |      **[D.1]** Final model configuration is fixed due to the absence of a hyperparameter
-|      **[D.2]** ROC Curve AUC = 1.00000
+|      **[D.2]** AUROC = 1.00000
 |
 | **[E]** The model allows for ranking of predictors in terms of variable importance. The top-performing predictors in the model are as follows:
 |      **[E.1]** <span style="color: #FF0000">V21</span> variable (numeric)
@@ -1278,7 +1278,7 @@ BTREE_RU_OUT_Test_ROC <- roc(response = BTREE_RU_OUT_Test$BTREE_Observed,
 |      **[E.5]** <span style="color: #FF0000">V47</span> variable (numeric)
 |
 | **[F]** The independent test model performance of the final model is summarized as follows:
-|      **[F.1]** ROC Curve AUC = 0.65801
+|      **[F.1]** AUROC = 0.65801
 |
 |
 
@@ -1391,7 +1391,7 @@ BTREE_RO_OUT_Test_ROC <- roc(response = BTREE_RO_OUT_Test$BTREE_Observed,
 |
 | **[D]** The cross-validated model performance of the final model on this data version is summarized as follows:
 |      **[D.1]** Final model configuration is fixed due to the absence of a hyperparameter
-|      **[D.2]** ROC Curve AUC = 0.99115
+|      **[D.2]** AUROC = 0.99115
 |
 | **[E]** The model allows for ranking of predictors in terms of variable importance. The top-performing predictors in the model are as follows:
 |      **[E.1]** <span style="color: #FF0000">V21</span> variable (numeric)
@@ -1401,7 +1401,7 @@ BTREE_RO_OUT_Test_ROC <- roc(response = BTREE_RO_OUT_Test$BTREE_Observed,
 |      **[E.5]** <span style="color: #FF0000">V12</span> variable (numeric)
 |
 | **[F]** The independent test model performance of the final model is summarized as follows:
-|      **[F.1]** ROC Curve AUC = 0.71645
+|      **[F.1]** AUROC = 0.71645
 |
 |
 
@@ -1514,7 +1514,7 @@ BTREE_SMOTE_OUT_Test_ROC <- roc(response = BTREE_SMOTE_OUT_Test$BTREE_Observed,
 |
 | **[D]** The cross-validated model performance of the final model on this data version is summarized as follows:
 |      **[D.1]** Final model configuration is fixed due to the absence of a hyperparameter
-|      **[D.2]** ROC Curve AUC = 0.86373
+|      **[D.2]** AUROC = 0.86373
 |
 | **[E]** The model allows for ranking of predictors in terms of variable importance. The top-performing predictors in the model are as follows:
 |      **[E.1]** <span style="color: #FF0000">V49</span> variable (numeric)
@@ -1524,7 +1524,7 @@ BTREE_SMOTE_OUT_Test_ROC <- roc(response = BTREE_SMOTE_OUT_Test$BTREE_Observed,
 |      **[E.5]** <span style="color: #FF0000">V47</span> variable (numeric)
 |
 | **[F]** The independent test model performance of the final model is summarized as follows:
-|      **[F.1]** ROC Curve AUC = 0.80087
+|      **[F.1]** AUROC = 0.80087
 |
 |
 
@@ -1639,7 +1639,7 @@ BTREE_ROSE_OUT_Test_ROC <- roc(response = BTREE_ROSE_OUT_Test$BTREE_Observed,
 |
 | **[D]** The cross-validated model performance of the final model on this data version is summarized as follows:
 |      **[D.1]** Final model configuration is fixed due to the absence of a hyperparameter
-|      **[D.2]** ROC Curve AUC = 0.79089
+|      **[D.2]** AUROC = 0.79089
 |
 | **[E]** The model allows for ranking of predictors in terms of variable importance. The top-performing predictors in the model are as follows:
 |      **[E.1]** <span style="color: #FF0000">V11</span> variable (numeric)
@@ -1649,7 +1649,7 @@ BTREE_ROSE_OUT_Test_ROC <- roc(response = BTREE_ROSE_OUT_Test$BTREE_Observed,
 |      **[E.5]** <span style="color: #FF0000">V58</span> variable (numeric)
 |
 | **[F]** The independent test model performance of the final model is summarized as follows:
-|      **[F.1]** ROC Curve AUC = 0.88744
+|      **[F.1]** AUROC = 0.88744
 |
 |
 
@@ -1756,7 +1756,7 @@ BTREE_RU_IN_Test_ROC <- roc(response = BTREE_RU_IN_Test$BTREE_Observed,
 |
 | **[D]** The cross-validated model performance of the final model on this data version is summarized as follows:
 |      **[D.1]** Final model configuration is fixed due to the absence of a hyperparameter
-|      **[D.2]** ROC Curve AUC = 0.86071
+|      **[D.2]** AUROC = 0.86071
 |
 | **[E]** The model allows for ranking of predictors in terms of variable importance. The top-performing predictors in the model are as follows:
 |      **[E.1]** <span style="color: #FF0000">V21</span> variable (numeric)
@@ -1766,7 +1766,7 @@ BTREE_RU_IN_Test_ROC <- roc(response = BTREE_RU_IN_Test$BTREE_Observed,
 |      **[E.5]** <span style="color: #FF0000">V20</span> variable (numeric)
 |
 | **[F]** The independent test model performance of the final model is summarized as follows:
-|      **[F.1]** ROC Curve AUC = 0.72727
+|      **[F.1]** AUROC = 0.72727
 |
 |
 
@@ -1873,7 +1873,7 @@ BTREE_RO_IN_Test_ROC <- roc(response = BTREE_RO_IN_Test$BTREE_Observed,
 |
 | **[D]** The cross-validated model performance of the final model on this data version is summarized as follows:
 |      **[D.1]** Final model configuration is fixed due to the absence of a hyperparameter
-|      **[D.2]** ROC Curve AUC = 0.80321
+|      **[D.2]** AUROC = 0.80321
 |
 | **[E]** The model allows for ranking of predictors in terms of variable importance. The top-performing predictors in the model are as follows:
 |      **[E.1]** <span style="color: #FF0000">V1</span> variable (numeric)
@@ -1883,7 +1883,7 @@ BTREE_RO_IN_Test_ROC <- roc(response = BTREE_RO_IN_Test$BTREE_Observed,
 |      **[E.5]** <span style="color: #FF0000">V21</span> variable (numeric)
 |
 | **[F]** The independent test model performance of the final model is summarized as follows:
-|      **[F.1]** ROC Curve AUC = 0.68831
+|      **[F.1]** AUROC = 0.68831
 |
 |
 
@@ -1990,7 +1990,7 @@ BTREE_SMOTE_IN_Test_ROC <- roc(response = BTREE_SMOTE_IN_Test$BTREE_Observed,
 |
 | **[D]** The cross-validated model performance of the final model on this data version is summarized as follows:
 |      **[D.1]** Final model configuration is fixed due to the absence of a hyperparameter
-|      **[D.2]** ROC Curve AUC = 0.79661
+|      **[D.2]** AUROC = 0.79661
 |
 | **[E]** The model allows for ranking of predictors in terms of variable importance. The top-performing predictors in the model are as follows:
 |      **[E.1]** <span style="color: #FF0000">V20</span> variable (numeric)
@@ -2000,7 +2000,7 @@ BTREE_SMOTE_IN_Test_ROC <- roc(response = BTREE_SMOTE_IN_Test$BTREE_Observed,
 |      **[E.5]** <span style="color: #FF0000">V5</span> variable (numeric)
 |
 | **[F]** The independent test model performance of the final model is summarized as follows:
-|      **[F.1]** ROC Curve AUC = 0.69697
+|      **[F.1]** AUROC = 0.69697
 |
 |
 
@@ -2093,13 +2093,13 @@ BTREE_ROSE_IN_Test_ROC <- roc(response = BTREE_ROSE_IN_Test$BTREE_Observed,
 |
 | Class imbalance treatment method comparison:
 |
-| **[A]** The class imbalance treatment methods which demonstrated the best and most consistent ROC Curve AUC metrics using the **Bagged Trees** model are as follows:
+| **[A]** The class imbalance treatment methods which demonstrated the best and most consistent AUROC metrics using the **Bagged Trees** model are as follows:
 |      **[A.1]** **RU-OUT: Random Undersampling - Outside Resampling**
-|             **[A.1.1]** Test ROC Curve AUC = 0.90909, Cross-Validation ROC Curve AUC = 0.82000
+|             **[A.1.1]** Test AUROC = 0.90909, Cross-Validation AUROC = 0.82000
 |      **[A.2]** **RU-IN:  Random Undersampling - Inside Resampling**
-|             **[A.2.1]** Test ROC Curve AUC = 0.88744, Cross-Validation ROC Curve AUC = 0.79089
+|             **[A.2.1]** Test AUROC = 0.88744, Cross-Validation AUROC = 0.79089
 |      **[A.3]** **ROSE-OUT: Random Oversampling Examples - Outside Resampling**
-|             **[A.3.1]** Test ROC Curve AUC = 0.80087, Cross-Validation ROC Curve AUC = 0.86373
+|             **[A.3.1]** Test AUROC = 0.80087, Cross-Validation AUROC = 0.86373
 |
 |
 
@@ -2109,7 +2109,7 @@ BTREE_ROSE_IN_Test_ROC <- roc(response = BTREE_ROSE_IN_Test$BTREE_Observed,
 ##################################
 # Consolidating all evaluation results
 # for the train and test sets
-# using the ROC Curve AUC metric
+# using the AUROC metric
 ##################################
 Model <- c('REF','RU_OUT','RO_OUT','SMOTE_OUT','ROSE_OUT','RU_IN','RO_IN','SMOTE_IN','ROSE_IN',
            'REF','RU_OUT','RO_OUT','SMOTE_OUT','ROSE_OUT','RU_IN','RO_IN','SMOTE_IN','ROSE_IN')
@@ -2159,7 +2159,7 @@ print(ROCCurveAUC_Summary, row.names=FALSE)
                            groups = Set,
                            main = "Classification Model Performance Comparison",
                            ylab = "Model",
-                           xlab = "ROC Curve AUC",
+                           xlab = "AUROC",
                            auto.key = list(adj = 1),
                            type=c("p", "h"),       
                            origin = 0,
