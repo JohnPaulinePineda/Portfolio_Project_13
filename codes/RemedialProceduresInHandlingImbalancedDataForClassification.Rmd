@@ -1,6 +1,6 @@
 ---
 title: "Data Preprocessing : Remedial Procedures in Handling Imbalanced Data for Classification"
-author: "John Pauline Pineda"
+author: "<b><a href='https://github.com/JohnPaulinePineda'>John Pauline Pineda</a></b>"
 date: "December 12, 2022"
 output: 
   html_document:
@@ -57,6 +57,7 @@ library(pls)
 library(corrplot)
 library(lares)
 library(DMwR)
+library(DMwR2)
 library(gridExtra)
 library(rattle)
 library(rpart.plot)
@@ -74,6 +75,7 @@ library(mda)
 library(klaR)
 library(pamr)
 library(ROSE)
+library(themis)
 
 ##################################
 # Loading source and
@@ -2218,7 +2220,7 @@ colnames(BTREE_TEST_SUMMARY) <- c("LCL", "ROC", "UCL")
 |
 # **2. Summary** <a name="summary"></a>
 |
-| ![](D:/Github_Codes/ProjectPortfolio/Portfolio_Project_13/docs/Project13_Summary.png)
+| ![](D:/Github_Codes/ProjectPortfolio/Portfolio_Project_13/images/Project13_Summary.png)
 |
 # **3. References**
 |
@@ -2239,6 +2241,7 @@ colnames(BTREE_TEST_SUMMARY) <- c("LCL", "ROC", "UCL")
 | **[R Package]** [tidyverse](https://cran.r-project.org/web/packages/tidyverse/tidyverse.pdf) by Hadley Wickham
 | **[R Package]** [lares](https://cran.rstudio.com/web/packages/lares/lares.pdf) by Bernardo Lares
 | **[R Package]** [DMwR](https://mran.microsoft.com/snapshot/2016-05-02/web/packages/DMwR/DMwR.pdf) by Luis Torgo
+| **[R Package]** [DMwR2](https://mran.microsoft.com/snapshot/2016-05-02/web/packages/DMwR/DMwR.pdf) by Luis Torgo
 | **[R Package]** [gridExtra](https://cran.r-project.org/web/packages/gridExtra/gridExtra.pdf) by Baptiste Auguie and Anton Antonov
 | **[R Package]** [rattle](https://cran.r-project.org/web/packages/rattle/rattle.pdf) by Graham Williams
 | **[R Package]** [rpart.plot](https://cran.r-project.org/web/packages/rpart.plot/rpart.plot.pdf) by Stephen Milborrow
