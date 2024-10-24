@@ -2142,7 +2142,7 @@ print(ROCCurveAUC_Summary, row.names=FALSE)
                            main = "Classification Model Performance Comparison",
                            ylab = "Model",
                            xlab = "AUROC",
-                           auto.key = list(adj = 1),
+                           auto.key = list(adj=1, space="top", columns=2),
                            type=c("p", "h"),       
                            origin = 0,
                            alpha = 0.45,
